@@ -22,12 +22,19 @@ app.get('/', (req, res) => {
 // Create new johnny five board
 let board = new five.Board();
 
+//let testLed = new five.Led(13);
+
 board.on('ready', () => {
 	console.log('Board is ready! Waiting for connection')
 	// Set up socket.io and pass server
 	io.on('connection', (socket) => {
-	  console.log('Connected to a new socket');
-	});	
+		console.log('Connected to a new socket');
+		io.emit('ping', {message: 'Hello from express!'})
+	});
+
+	io.on('hello', (data) => {
+		console.log('Requested to turn on' + data.led);
+	});
 });
 
 
