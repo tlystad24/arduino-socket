@@ -21,17 +21,20 @@ app.get('/', (req, res) => {
 })
 // Create new johnny five board
 const board = new five.Board();
-var p1Button, p2Button;
+
 
 
 //let testLed = new five.Led(13);
 
 board.on('ready', () => {
+	console.log('Assigning buttons');
+	var p1Button = new five.Button(7);
+	var p2Button = new five.Button(8);
 	console.log('Board is ready! Waiting for connection')
 	// Set up socket.io and pass server
 	io.on('connection', (socket) => {
 		console.log('Connected to a new socket');
-		io.emit('ping', {message: 'Hello from express!'})
+		//io.emit('ping', {message: 'Hello from express!'})
 	});
 
 	io.on('hello', (data) => {
@@ -39,13 +42,13 @@ board.on('ready', () => {
 	});
 
 	// When player 1 clicks their button
-	p1button.on('down', () => {
+	p1Button.on('down', () => {
 		io.emit('click', { button: 'p1' });
 		console.log('p1 button pressed');
 	});
 
 	// When player 2 clicks their button
-	p2button.on('down', () => {
+	p2Button.on('down', () => {
 		io.emit('click', { button: 'p2' });
 		console.log('p2 button pressed');
 	});
