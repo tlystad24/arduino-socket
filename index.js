@@ -20,7 +20,9 @@ app.get('/', (req, res) => {
 	res.sendFile('index.html');
 })
 // Create new johnny five board
-let board = new five.Board();
+const board = new five.Board();
+var p1Button, p2Button;
+
 
 //let testLed = new five.Led(13);
 
@@ -35,6 +37,20 @@ board.on('ready', () => {
 	io.on('hello', (data) => {
 		console.log('Requested to turn on' + data.led);
 	});
+
+	// When player 1 clicks their button
+	p1button.on('down', () => {
+		io.emit('click', { button: 'p1' });
+		console.log('p1 button pressed');
+	});
+
+	// When player 2 clicks their button
+	p2button.on('down', () => {
+		io.emit('click', { button: 'p2' });
+		console.log('p2 button pressed');
+	});
+
+
 });
 
 
