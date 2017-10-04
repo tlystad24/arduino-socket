@@ -1,7 +1,10 @@
 /* ====== CLIENT ====== */ 
 
+// Set server adress for socket server
+let server = 'localhost:4000';
+
 // Create new connection to local server
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('http://' + server); // -= Change to server =-
 
 var game = {
 	// Text notification display
