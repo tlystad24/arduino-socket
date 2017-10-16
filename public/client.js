@@ -1,12 +1,14 @@
-/* ====== CLIENT ====== */ 
-
+/* ====== CLIENT ====== */
+let io;
+let document;
 // Set server adress for socket server
-let server = 'localhost:4000';
+const server = 'localhost:4000';
 
 // Create new connection to local server
-var socket = io.connect('http://' + server); // -= Change to server =-
+const prefix = 'http://';
+const socket = io.connect(prefix + server); // -= Change to server =-
 
-var game = {
+const game = {
 	// Text notification display
 	displayText: document.getElementById('displayText'),
 	// Player 1 symbol
@@ -24,7 +26,7 @@ socket.on('ping', (data) => {
 */
 // React to clicks: -=TODO=-
 socket.on('click', (data) => {
-	console.log(data);	
+	console.log(data);
 	if (data.button === 'p1') {
 		// B1 pressed
 		console.log('Button 1 recieved!');
@@ -39,13 +41,16 @@ socket.on('click', (data) => {
 		game.player1.style.color = 'red';
 	}
 });
-
-// Game handler:
+/*
+// Game handler (currently not working):
 function gameHandler() {
 	let winner = false;
 	let env = 'prod';
 	while (!winner && env === 'prod') {
-
-
+		console.log('Game in progress')
 	}
 }
+
+// Temporary invoke
+gameHandler();
+*/
