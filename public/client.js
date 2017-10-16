@@ -43,7 +43,7 @@ socket.on('click', (data) => {
 });
 /*
 // Game handler (currently not working):
-function gameHandler() {
+function gameHandler() {
 	let winner = false;
 	let env = 'prod';
 	while (!winner && env === 'prod') {
