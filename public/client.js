@@ -1,19 +1,22 @@
 /* ====== CLIENT ====== */
 
 // Set server adress for socket server
-const server = 'localhost:4000'; // Must be set to the adress in which the client can reach the server.
+const server = 'localhost:4000'; // Adress in which the client can reach the server.
 
 // Create new connection to local server
-let socket = io.connect('http://' + server); // -= Connect to server =-
+const prefix = 'http://';
+const socket = io.connect(prefix + server); // -= Connect to server =-
 
 // Game object
-let game = {
+const game = {
 	// Text notification display
 	displayText: document.getElementById('displayText'),
 	// Player 1 symbol
 	player1: document.getElementById('player1'),
 	// Player 2 symbol
-	player2: document.getElementById('player2')
+	player2: document.getElementById('player2'),
+	// Game start date
+	startDate: Date.now()
 };
 
 console.log(game.display, game.player1, game.player2);
@@ -41,12 +44,12 @@ socket.on('click', (data) => {
 	}
 });
 
+/*
 // Game handler:
 function gameHandler() {
 	let winner = false;
 	let env = 'prod';
 	while (!winner && env === 'prod') {
-
-
+*/
 	}
 }
