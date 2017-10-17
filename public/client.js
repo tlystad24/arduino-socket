@@ -1,14 +1,13 @@
 /* ====== CLIENT ====== */
-let io;
-let document;
+
 // Set server adress for socket server
-const server = 'localhost:4000';
+const server = 'localhost:4000'; // Must be set to the adress in which the client can reach the server.
 
 // Create new connection to local server
-const prefix = 'http://';
-const socket = io.connect(prefix + server); // -= Change to server =-
+let socket = io.connect('http://' + server); // -= Connect to server =-
 
-const game = {
+// Game object
+let game = {
 	// Text notification display
 	displayText: document.getElementById('displayText'),
 	// Player 1 symbol
@@ -41,16 +40,13 @@ socket.on('click', (data) => {
 		game.player1.style.color = 'red';
 	}
 });
-/*
-// Game handler (currently not working):
-function gameHandler() {
+
+// Game handler:
+function gameHandler() {
 	let winner = false;
 	let env = 'prod';
 	while (!winner && env === 'prod') {
-		console.log('Game in progress')
+
+
 	}
 }
-
-// Temporary invoke
-gameHandler();
-*/
