@@ -32,8 +32,8 @@ board.on('ready', () => {
 	const p2Button = new five.Button(8);
 	console.log('Board is ready! Waiting for connection');
 	// Set up socket.io and pass server
-	io.on('connection', (socket) => {
-		console.log('Connected to a new socket');
+	io.on('connection', (s) => {
+		console.log('Connected to a new socket', s);
 		//io.emit('ping', {message: 'Hello from express!'})
 	});
 
