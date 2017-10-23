@@ -2,5 +2,9 @@
     "extends": "rallycoding",
     "rules": {
         "react/require-extension": "off"
+    },
+    "env": {
+    	"browser": true,
+    	"node": true
     }
 }

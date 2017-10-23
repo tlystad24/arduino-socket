@@ -16,19 +16,16 @@ const game = {
 	// Player 2 symbol
 	player2: document.getElementById('player2'),
 	// Game start date
-	startDate: Date.now()
+	startDate: Date.now(),
+	// Set winner to false
+	winner: false
 };
 
 console.log(game.display, game.player1, game.player2);
 
-/*
-socket.on('ping', (data) => {
-	console.log(data.message);
-});
-*/
-// React to clicks: -=TODO=-
+// React to clicks
 socket.on('click', (data) => {
-	console.log(data);
+	game.winner = true;
 	if (data.button === 'p1') {
 		// B1 pressed
 		console.log('Button 1 recieved!');
@@ -45,12 +42,12 @@ socket.on('click', (data) => {
 });
 
 /*
-// Game handler:
-function gameHandler() {
-	let winner = false;
-	let env = 'prod';
-	while (!winner && env === 'prod') {
+// Input handler
+const handler = (data) => {
+	// Which button was pressed?
+	let playerRequest;
+	data.button === 'p1' ? playerRequest = 1 : playerRequest = 2;
 
-	}
-}
+
+};
 */

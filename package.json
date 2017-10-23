@@ -15,6 +15,7 @@
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "eslint-config-rallycoding": "^3.2.0",
     "nodemon": "^1.12.1"
   }
