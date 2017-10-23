@@ -51,8 +51,9 @@ init.textContent = time + ' -> Current unix time';
 let main = async() => {
 
 	function testFunc() {
-		if (toggleVar == 2) {
+		if (button1 && button2) {
 			alert('Worked');
+			button1 = button2 = false;
 			return;
 		} else {
 			console.log("Didn't");
@@ -68,7 +69,7 @@ let p1F = function() {
       button1 = true;
       button1Time = (Date.now() - time);
 		
-		toggleVar++, testFunc();
+		testFunc();
    }
 	
 // Function to run when button 2 is pressed
@@ -79,7 +80,7 @@ let p2F = function() {
       button2 = true;
       button2Time = (Date.now() - time);
 		
-		toggleVar++, testFunc();
+		testFunc();
 		
 }
 
@@ -90,4 +91,5 @@ let p2F = function() {
 } // End main
 
 window.onload = main();
+
 ```
