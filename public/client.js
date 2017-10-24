@@ -91,4 +91,4 @@ const main = async () => {
 }; // End main
 
 // Run main upon window load
-window.onload = main();
+window.onload = main(); // => This needs a random countdown
