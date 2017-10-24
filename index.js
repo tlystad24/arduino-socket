@@ -1,44 +1,42 @@
 /* ====== SERVER ====== */
 
 // Import libraries
-var express = require('express');
-var five = require('johnny-five');
-var socket = require('socket.io');
+const express = require('express');
+const five = require('johnny-five');
+const socket = require('socket.io');
 
 // Server app setup
-var app = express();
-var server = app.listen(4000, function() {
+const app = express();
+const server = app.listen(4000, () => {
   console.log('Listening to port 4000');
 });
 
 // Server static files
 app.use(express.static('public'));
 
-var io = socket(server);
+const io = socket(server);
 
 app.get('/', (req, res) => {
 	res.sendFile('index.html');
-})
+});
+
 // Create new johnny five board
 const board = new five.Board();
 
-
-
-//let testLed = new five.Led(13);
-
 board.on('ready', () => {
 	console.log('Assigning buttons');
-	var p1Button = new five.Button(7);
-	var p2Button = new five.Button(8);
-	console.log('Board is ready! Waiting for connection')
+	const p1Button = new five.Button(7);
+	const p2Button = new five.Button(8);
+	console.log('Board is ready! Waiting for connection');
 	// Set up socket.io and pass server
-	io.on('connection', (socket) => {
-		console.log('Connected to a new socket');
+	io.on('connection', (s) => {
+		console.log('Connected to a new socket', /* s */);
 		//io.emit('ping', {message: 'Hello from express!'})
 	});
 
 	io.on('hello', (data) => {
-		console.log('Requested to turn on' + data.led);
+        const requestedString = 'Requested to turn on ';
+		console.log(requestedString + data.led);
 	});
 
 	// When player 1 clicks their button
@@ -52,9 +50,4 @@ board.on('ready', () => {
 		io.emit('click', { button: 'p2' });
 		console.log('p2 button pressed');
 	});
-
-
 });
-
-
-
