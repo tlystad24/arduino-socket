@@ -24,13 +24,13 @@ let button2Time;
 
 // Main function
 const main = async () => {
-	time = Date.now();	
+	time = Date.now();
 
 	function testFunc() {
 		if (button1 && button2) {
 			displayResults(button1Time, button2Time);
 			button1 = button2 = false;
-			return;
+			// return;
 		} else {
 			console.log('Something stopped this action.');
 			return; // (?)

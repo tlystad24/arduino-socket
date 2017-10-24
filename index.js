@@ -23,9 +23,6 @@ app.get('/', (req, res) => {
 // Create new johnny five board
 const board = new five.Board();
 
-
-//let testLed = new five.Led(13);
-
 board.on('ready', () => {
 	console.log('Assigning buttons');
 	const p1Button = new five.Button(7);
