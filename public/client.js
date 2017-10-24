@@ -72,9 +72,9 @@ const main = async () => {
 	// Keypress
 	window.addEventListener('keydown', (e) => {
 		if (e.keyCode === 83) {
-			console.warn('Key: S was pressed');
+			p1F();
 		} else if (e.keyCode === 75) {
-			console.warn('Key: K was pressed');
+			p2F();
 		}
 	});
 
