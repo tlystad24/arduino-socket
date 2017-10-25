@@ -25,6 +25,7 @@ let button2Time;
 // Main function
 const main = async () => {
 	time = Date.now();
+	display.textContent = 'GO!';
 
 	function testFunc() {
 		if (button1 && button2) {
@@ -71,18 +72,18 @@ const main = async () => {
 
 	// Keypress
 	window.addEventListener('keydown', (e) => {
-		if (e.keyCode === 83) {
+		if (e.keyCode === 83) { // If 'S' was pressed
 			p1F();
-		} else if (e.keyCode === 75) {
+		} else if (e.keyCode === 75) { // If 'K' was pressed
 			p2F();
 		}
 	});
 
 	// Arduino control via socket.io
 	socket.on('click', (data) => {
-		if (data.button === 'p1') {
+		if (data.button === 'p1') { // If button 1 was pressed
 			p1F();
-		} else if (data.button === 'p2') {
+		} else if (data.button === 'p2') { // If button 2 was pressed
 			p2F();
 		} else {
 			console.warn('Button is not recognized!');
@@ -91,4 +92,7 @@ const main = async () => {
 }; // End main
 
 // Run main upon window load
-window.onload = main(); // => This needs a random countdown
+// countdown
+window.onload = setTimeout(() => {
+   main();
+}, countDown);
