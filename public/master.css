@@ -6,6 +6,12 @@ body {
 	display: none;
 }
 
+#display {
+	font-size: 7em;
+	margin: auto;
+	width: 50%;
+}
+
 .buttons {
 	margin: auto;
 	margin-top: 7em;
