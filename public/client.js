@@ -31,7 +31,6 @@ const main = async () => {
 		if (button1 && button2) {
 			displayResults(button1Time, button2Time);
 			button1 = button2 = false;
-			// return;
 		} else {
 			console.log('Something stopped this action.');
 			return; // (?)
@@ -47,21 +46,32 @@ const main = async () => {
 		console.info('Button 1 was pressed');
 		clickedTime = Date.now();
 		init.textContent = clickedTime - time;
-		// QA
-		button1 = true;
+
 		button1Time = (Date.now() - time);
 
-		testFunc();
+		// Needs testing
+		if (button1 !== true) {
+			button1 = true;
+			testFunc();
+		} else {
+			console.log('This button has already been pressed this round');
+		}
 	}; // End button 1 function
 
 	// Run when button 2 is pressed
 	const p2F = function () {
 		console.info('Button 2 pressed');
 		clickedTime = (Date.now());
-		// QA:
-		button2 = true;
+
 		button2Time = (Date.now() - time);
-		testFunc();
+
+		// Needs testing
+		if (button2 !== true) {
+			button2 = true;
+			testFunc();
+		} else {
+			console.log('This button was already pressed this round');
+		}
 	};
 
 	// Handle keyboard input, keypress and Arduino control board.
