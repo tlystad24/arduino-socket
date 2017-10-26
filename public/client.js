@@ -34,7 +34,7 @@ const main = async () => {
 			displayResults(button1Time, button2Time);
 		} else {
 			console.log('Something stopped this action.');
-			return; // (?)
+			return;
 		}
 	}
 	// Function to display the results
