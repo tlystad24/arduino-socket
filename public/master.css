@@ -8,6 +8,7 @@ body {
 
 #display {
 	font-size: 7em;
+	font-family: Arial;
 	margin: auto;
 	width: 50%;
 }
@@ -25,6 +26,7 @@ button {
 	border-radius: 25px;
 	border: 0px solid black;
 	font-size: 3em;
+	transition: all .5s;
 }
 
 button#p1 {
@@ -33,4 +35,9 @@ button#p1 {
 
 button#p2 {
 	background-color: rebeccapurple;
+}
+
+#clicked {
+	border-5px solid green;
+	background-color: #808080;
 }

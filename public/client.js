@@ -41,6 +41,15 @@ const main = async () => {
 	let displayResults = (b1R, b2R) => {
 		p1.textContent = b1R.toString() + suffix;
 		p2.textContent = b2R.toString() + suffix;
+
+		if (b1R < b2R) {
+			p1.style.backgroundColor = 'green';
+		} else if (b2R < b1R) {
+			p2.style.backgroundColor = 'green';
+		} else {
+			p1.style.backgroundColor = 'blue';
+			p2.style.backgroundColor = 'blue';
+		}
 	};
 
 	// Run block when buton 1 is pressed
@@ -50,6 +59,8 @@ const main = async () => {
 		init.textContent = clickedTime - time;
 
 		button1Time = (Date.now() - time); // Calculate used time.
+
+		p1.style.border = 'thick solid #808080';
 
 		// Needs testing
 		if (button1 !== true) {
@@ -66,6 +77,8 @@ const main = async () => {
 		clickedTime = (Date.now());
 
 		button2Time = (Date.now() - time);
+
+		p2.style.border = 'thick solid #808080';
 
 		// Needs testing
 		if (button2 !== true) {
