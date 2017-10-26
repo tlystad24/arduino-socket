@@ -32,7 +32,7 @@ const main = async () => {
 	function testFunc() {
 		if (button1 && button2) {
 			displayResults(button1Time, button2Time);
-			button1 = button2 = false;
+			//button1 = button2 = false;
 		} else {
 			console.log('Something stopped this action.');
 			return; // (?)
