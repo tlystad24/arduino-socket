@@ -7,26 +7,28 @@ const server = 'localhost:4000'; // Adress in which the client can reach the ser
 const prefix = 'http://';
 const socket = io.connect(prefix + server); // -= Connect to server =-
 
-
-// let winner = false;
-const countDown = 5000 * (Math.random() * 2);
-let time = null; // Will be assigned later
+// Declare variables
+const countDown = 5000 * (Math.random() * 2); // Calculate random countdown to game start
+let time = null; // Will be assigned at round start
 let clickedTime = null; // Will be assigned upon button press
+// Import html tags as javascript objects
 const p1 = document.getElementById('p1');
 const p2 = document.getElementById('p2');
 const display = document.getElementById('display');
 const init = document.getElementById('init');
-let button1 = null;
-let button2 = null;
-const suffix = 'ms';
+let button1 = null; // Button has not been clicked yet
+let button2 = null; // Button has not been clicked yet
+const suffix = 'ms'; // Measure reaction time in milliseconds
 let button1Time;
 let button2Time;
 
 // Main function
 const main = async () => {
-	time = Date.now();
-	display.textContent = 'GO!';
+	time = Date.now(); // Save time when game started. 
+	//					  This is to calculate how much time the player used to press the button.
+	display.textContent = 'GO!'; // Announce that the game has begun.
 
+	// Function to check if both buttons has been pressed before picking winner.
 	function testFunc() {
 		if (button1 && button2) {
 			displayResults(button1Time, button2Time);
@@ -36,6 +38,7 @@ const main = async () => {
 			return; // (?)
 		}
 	}
+	// Function to display the results
 	let displayResults = (b1R, b2R) => {
 		p1.textContent = b1R.toString() + suffix;
 		p2.textContent = b2R.toString() + suffix;
@@ -47,7 +50,7 @@ const main = async () => {
 		clickedTime = Date.now();
 		init.textContent = clickedTime - time;
 
-		button1Time = (Date.now() - time);
+		button1Time = (Date.now() - time); // Calculate used time.
 
 		// Needs testing
 		if (button1 !== true) {
