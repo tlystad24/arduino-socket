@@ -17,7 +17,7 @@ app.use(express.static('public'));
 // Connect socket to server
 const io = socket(server);
 
-// Listen for requests to root and server index
+// Listen for requests to root and serve index
 app.get('/', (req, res) => {
 	res.sendFile('index.html');
 });

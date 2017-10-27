@@ -78,12 +78,9 @@ const main = async () => {
 	const p2F = function () {
 		console.info('Button 2 pressed');
 		clickedTime = (Date.now());
-
 		button2Time = (Date.now() - time);
-
 		p2.style.border = 'thick solid #808080';
 
-		// Needs testing
 		if (button2 !== true) {
 			button2 = true;
 			testFunc();
