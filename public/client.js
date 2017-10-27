@@ -44,11 +44,14 @@ const main = async () => {
 
 		if (b1R < b2R) {
 			p1.style.backgroundColor = 'green';
+			display.textContent = 'Player 1 wins!';
 		} else if (b2R < b1R) {
 			p2.style.backgroundColor = 'green';
+			display.textContent = 'Player 2 wins!';
 		} else {
 			p1.style.backgroundColor = 'blue';
 			p2.style.backgroundColor = 'blue';
+			display.textContent = 'Tie!';
 		}
 	};
 
