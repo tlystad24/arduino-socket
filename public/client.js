@@ -41,7 +41,8 @@ const main = async () => {
 	let displayResults = (b1R, b2R) => {
 		p1.textContent = b1R.toString() + suffix;
 		p2.textContent = b2R.toString() + suffix;
-
+		
+		// Calculate which player won
 		if (b1R < b2R) {
 			p1.style.backgroundColor = 'green';
 			display.textContent = 'Player 1 wins!';
