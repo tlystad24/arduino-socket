@@ -65,7 +65,6 @@ const main = async () => {
 
 		p1.style.border = 'thick solid #808080';
 
-		// Needs testing
 		if (button1 !== true) {
 			button1 = true;
 			testFunc();
