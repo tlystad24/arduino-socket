@@ -2,7 +2,7 @@
 > Using Johnny-Five, Express.js and Socket.io
 
 ## Installation
-> Node.JS and NPM is required.
+> Node.JS and NPM are required.
 > Get them at https://nodejs.org/en/ and https://www.npmjs.com/
 
 ### 1 - 3: Server
